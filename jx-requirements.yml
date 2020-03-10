@@ -1,21 +1,83 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
 bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-helmfile-config
 cluster:
+  clusterName: kind
+  devEnvApprovers:
+  - jstrachan
+  environmentGitOwner: jstrachan
+  environmentGitPublic: true
   gitKind: github
   gitName: github
+  gitPublic: true
   gitServer: https://github.com
   namespace: jx
+  provider: kind
+  registry: 192.168.1.64:5000
 environments:
-- key: dev
-- key: staging
-  remoteCluster: false
-- key: production
-  remoteCluster: false
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-kind-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-kind-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-kind-production
 gitops: true
 helmfile: true
+ingress:
+  domain: 192.168.1.64.nip.io
+  externalDNS: false
+  ignoreLoadBalancer: true
+  namespaceSubDomain: -jx.
+  tls:
+    email: ""
+    enabled: false
+    production: false
 kaniko: true
 repository: nexus
 secretStorage: local
+storage:
+  backup:
+    enabled: false
+    url: ""
+  logs:
+    enabled: false
+    url: ""
+  reports:
+    enabled: false
+    url: ""
+  repository:
+    enabled: false
+    url: ""
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: master
+  ref: v1.0.385
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: lighthouse
