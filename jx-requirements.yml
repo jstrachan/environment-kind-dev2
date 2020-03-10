@@ -17,9 +17,10 @@ cluster:
   registry: 192.168.1.64:5000
 environments:
 - ingress:
-    domain: ""
+    domain: 192.168.1.64.nip.io
     externalDNS: false
-    namespaceSubDomain: ""
+    ignoreLoadBalancer: true
+    namespaceSubDomain: -jx.
     tls:
       email: ""
       enabled: false
