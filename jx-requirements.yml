@@ -1,7 +1,6 @@
 autoUpdate:
   enabled: false
   schedule: ""
-bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-helmfile-config
 cluster:
   chartRepository: http://bucketrepo/bucketrepo/charts/
   clusterName: kind
@@ -80,6 +79,6 @@ velero:
   schedule: ""
   ttl: ""
 versionStream:
-  ref: v1.0.385
-  url: https://github.com/jenkins-x/jenkins-x-versions.git
+  ref: bump-regex-version-9c317c06-63b0-11ea-95f0-acde48001122
+  url: https://github.com/jstrachan/jenkins-x-versions.git
 webhook: lighthouse
